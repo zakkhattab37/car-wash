@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@flaticon/flaticon-uicons": "^3.3.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.43.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-is": "^19.3.1",
+    "recharts": "^3.11.1",
+    "tailwind-merge": "^3.7.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "esbuild": "^0.28.2"
+  },
+  "name": "bashmohandes-car-wash",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild js/analytics.jsx --bundle --minify --format=esm --outfile=assets/analytics.js --legal-comments=eof",
+    "test": "npm run test:unit && npm run test:browser",
+    "test:unit": "node --test tests/business.test.mjs",
+    "test:browser": "playwright test"
+  }
+}

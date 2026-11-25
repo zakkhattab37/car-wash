@@ -1,0 +1,17 @@
+/* Shortened Animista fade, slide and scale animations for operational controls. */
+@keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes slide-in-right { 0% { transform: translateX(100%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+@keyframes scale-in-center { 0% { transform: scale(.97); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes slide-in-bottom { 0% { transform: translateY(10px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes slide-out-bottom { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(8px); opacity: 0; } }
+@keyframes pulse { 50% { opacity: .48; } }
+.animate-page, tr.row-in { animation: fade-in 170ms ease both; }
+tr.row-out, .repeat-row.row-out { animation: slide-out-bottom 125ms ease both; }
+.repeat-row { animation: fade-in 150ms ease both; }
+#modal[open] { animation: scale-in-center 155ms ease both; }
+.toast { animation: slide-in-bottom 175ms ease both; }
+.toast.out { animation: slide-out-bottom 155ms ease both; }
+.skeleton { animation: pulse .8s ease infinite; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

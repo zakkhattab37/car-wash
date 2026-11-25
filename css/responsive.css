@@ -1,0 +1,68 @@
+@media (min-width: 1450px) {
+  #content { padding-inline: 32px; }
+  .chart-box { height: 235px; }
+  .donut-holder { height: 180px; max-width: 180px; }
+}
+@media (max-width: 1120px) {
+  :root { --sidebar-width: min(var(--desktop-sidebar-width, 211px), 45vw); }
+  #content, #topbar { padding-inline: 17px; }
+  .metric { padding-inline: 10px; }
+  .summary-mini { padding-inline: 7px; }
+}
+@media (max-width: 930px) {
+  :root, body.collapsed:not(.sidebar-dragging) { --sidebar-width: 0px; --top: 63px; }
+  #sidebar { width: min(var(--mobile-sidebar-width, 270px), 83vw); transform: translateX(102%); }
+  body.drawer-open #sidebar { transform: translateX(0); }
+  #sidebar-handle { width: 24px; margin-inline-start: -9px; }
+  body.drawer-open #sidebar-handle { inset-inline-start: min(var(--mobile-sidebar-width, 270px), 83vw); }
+  body.sidebar-dragging .shell { padding-inline-start: 0; }
+  body.sidebar-dragging #sidebar { width: var(--sidebar-drag-width); transform: none; overflow: hidden; }
+  body.sidebar-dragging #sidebar-handle { inset-inline-start: var(--sidebar-drag-width); }
+  body.drawer-open { overflow: hidden; }
+  #backdrop { position: fixed; inset: 0; z-index: 19; background: var(--scrim); border: 0; }
+  body.collapsed .brand { padding-inline: 21px; }
+  body.collapsed .brand-text, body.collapsed .nav-text, body.collapsed .side-label, body.collapsed .nav-count, body.collapsed .branch-text { display: revert; }
+  body.collapsed .nav-link { justify-content: start; }
+}
+@media (max-width: 650px) {
+  #content { padding: 16px 11px; }
+  #topbar { padding-inline: 11px; gap: 7px; }
+  .top-group { gap: 6px; }
+  .sidebar-toggle span { display: none; }
+  .breadcrumb span, .breadcrumb .app-icon, .top-search span, .top-search kbd, .top-divider, .profile > span:not(.avatar), .profile > .app-icon { display: none; }
+  .top-search { width: 34px; padding-inline: 0; justify-content: center; }
+  .page-heading { align-items: start; flex-wrap: wrap; gap: 10px; margin-bottom: 13px; }
+  .page-actions { gap: 5px; }
+  .metrics { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; margin-bottom: 10px; }
+  .metric { min-height: 102px; padding: 8px; }
+  .metric-top { font-size: 11px; gap: 6px; }
+  .metric-icon { width: 29px; height: 29px; }
+  .metric-icon .app-icon { font-size: 16px !important; }
+  .dashboard-grid { grid-template-columns: 1fr; gap: 10px; margin-bottom: 10px; }
+  .summary-strip { grid-template-columns: repeat(2,minmax(0,1fr)); margin-bottom: 10px; }
+  .summary-mini { padding: 7px; }
+  .panel-head { padding-inline: 10px; }
+  td, th { padding-inline: 10px; }
+  .toolbar { padding-inline: 10px; }
+  .app-footer { padding-inline: 11px; }
+  .repeat-row { grid-template-columns: minmax(70px,1.3fr) minmax(40px,.7fr) minmax(70px,1fr) auto; }
+  .repeat-row input, .repeat-row select { padding-inline-start: 5px; }
+  .check-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 390px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .modal-body { padding-inline: 8px; }
+}
+@media print {
+  @page { margin: 12mm; }
+  :root { color-scheme: light; }
+  body { background: white; color: var(--ink-primary); overflow: visible !important; }
+  #sidebar, #sidebar-handle, #backdrop, .shell, #modal, #toasts { display: none !important; }
+  #modal::backdrop { display: none; }
+  #print-area { display: block; direction: rtl; color: var(--ink-primary); }
+  #print-area h1, #print-area p { margin: 0 0 8px; }
+  #print-area table { white-space: normal; color: var(--ink-primary); }
+  #print-area td, #print-area th { color: var(--ink-primary); background: #fff; border: 1px solid #999; padding: 4px; }
+  #print-area .table-wrap { overflow: visible; }
+  #print-area .print-logo { max-height: 50px; }
+}
